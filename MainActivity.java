@@ -10,7 +10,7 @@ import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
 
-    private WebView view; //membuat variabel view agar bisa akses method onKeyDown
+    private WebView view; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
         view = (WebView) this.findViewById(R.id.webView);
         view.getSettings().setJavaScriptEnabled(true);
         view.setWebViewClient(new MyBrowser());
-        view.loadUrl("http://Kabbokothon01.blogspot.com"); //try js alert
-        view.setWebChromeClient(new WebChromeClient()); // adding js alert support
+        view.loadUrl("http://Kabbokothon01.blogspot.com"); 
+        view.setWebChromeClient(new WebChromeClient()); 
     }
 
     private class MyBrowser extends WebViewClient {
@@ -33,13 +33,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        //ketika disentuh tombol back
+        
         if ((keyCode == KeyEvent.KEYCODE_BACK) && view.canGoBack()) {
-            view.goBack(); //method goback() dieksekusi untuk kembali pada halaman sebelumnya
+            view.goBack(); 
             return true;
         }
-        // Jika tidak ada history (Halaman yang sebelumnya dibuka)
-        // maka akan keluar dari activity
+       
         return super.onKeyDown(keyCode, event);
     }
 
